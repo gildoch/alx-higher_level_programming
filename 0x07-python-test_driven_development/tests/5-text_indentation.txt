@@ -1,0 +1,40 @@
+The ``5-text_indentation`` module
+===================================
+
+Using ``text_indentation``
+----------------------------------
+
+Import the function from module:
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Check for module documentantion:
+    >>> moddoc = __import__("5-text_indentation").__doc__
+    >>> len(moddoc) > 1
+    True
+
+Check for function documentantion:
+    >>> funcdoc = __import__("5-text_indentation").text_indentation.__doc__
+    >>> len(funcdoc) > 1
+    True
+
+Check for non-string value:
+    >>> text_indentation(5)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Check for no arguments passed:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Check for text without special characters:
+    >>> text_indentation("Learn Python")
+    Learn Python
+
+Check for text with one special char:
+    >>> text_indentation("Learn.Python")
+    Learn.
+    <BLANKLINE>
+    Python

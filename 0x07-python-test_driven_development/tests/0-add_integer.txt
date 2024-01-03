@@ -1,0 +1,106 @@
+The ``0-add_integer`` module
+=============================
+
+Using ``add_integer``
+-----------------------------
+
+Importing the function from module:
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Check for module documentation:
+    >>> moduledoc = __import__("0-add_integer").__doc__
+    >>> len(moduledoc) > 1
+    True
+
+Check for function documentation:
+    >>> funcDoc = __import__("0-add_integer").add_integer.__doc__
+    >>> len(funcDoc) > 1
+    True
+
+Check 2 positive numbers:
+    >>> add_integer(5, 3)
+    8
+
+Check negative a with positive b:
+    >>> add_integer(-3, 10)
+    7
+
+Check negative b with positive a:
+    >>> add_integer(3, -10)
+    -7
+
+Check 2 negative numbers:
+    >>> add_integer(-5, -2)
+    -7
+
+Check int a with float b:
+    >>> add_integer(3, 3.6)
+    6
+
+Check int b with float a:
+    >>> add_integer(3.6, 3)
+    6
+
+Check 2 float numbers:
+    >>> add_integer(5.5, 5.5)
+    10
+
+Check int a with string b:
+    >>> add_integer(5, "10")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Check int b with string a:
+    >>> add_integer("10", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Check int a with not nan float convertion:
+     >>> add_integer(5, float("nan"))
+     Traceback (most recent call last):
+     ...
+     ValueError: cannot convert float NaN to integer
+
+Check int b with nan float convertion:
+    >>> add_integer(float("nan"), 4)
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Check operation with more than 2 numbers:
+    >>> add_integer(2, 6, 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Check no arguments passed:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Check one argument passed:
+    >>> add_integer(2)
+    100
+
+Check 2 non-number arguments:
+    >>> add_integer([1],{"key":5})
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Check calculation on multiple values:
+	 >>> [add_integer(i, i ** 2) for i in range(6)]
+	 [0, 2, 6, 12, 20, 30]
+
+Check calculation with maxsize:
+    >>> add_integer(9223372036854775807, 9223372036854775807)
+    18446744073709551614
+
+Check for infinity value passed:
+    >>> add_integer(10, float("inf"))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
