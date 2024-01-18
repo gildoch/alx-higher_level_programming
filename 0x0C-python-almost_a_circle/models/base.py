@@ -64,3 +64,24 @@ class Base:
                 json_string = cls.to_json_string(
                     [obj.to_dictionary() for obj in list_objs])
                 f.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Return the list represented by the JSON string representation.
+
+        Parameters:
+        - json_string (str): A string representing a list of dictionaries
+            in JSON format.
+
+        Returns:
+        - list: List represented by the JSON string.
+
+        Raises:
+        - TypeError: If json_string is not a string.
+        - ValueError: If the JSON string is not valid or cannot be decoded.
+        """
+        if not json_string:
+            return []
+
+        return json.loads(json_string)
