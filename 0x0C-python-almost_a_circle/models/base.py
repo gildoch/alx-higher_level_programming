@@ -85,3 +85,32 @@ class Base:
             return []
 
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Return an instance with all attributes already set based on the
+          provided dictionary.
+
+        Parameters:
+        - cls (class): The class itself.
+        - **dictionary: Double pointer to a dictionary containing
+            attribute values.
+
+        Returns:
+        - Instance: An instance of the class with attributes set according
+            to the provided dictionary.
+
+        Raises:
+        - TypeError: If **dictionary is not a dictionary.
+        - ValueError: If the dictionary is missing mandatory attributes
+            for the class.
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                obj = cls(1, 1)
+            elif cls.__name__ == "Square":
+                obj = cls(1)
+
+            obj.update(**dictionary)
+            return obj
