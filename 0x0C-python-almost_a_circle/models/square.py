@@ -78,3 +78,16 @@ class Square(Rectangle):
             self.y = args[3]
         except IndexError:
             pass
+
+    def to_dictionary(self):
+        """Functions that returns the dictionary representation of a Square
+        Args:
+            None
+        Returns:
+            Dictionary
+        """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y}
