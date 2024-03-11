@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-const { argv } = require("process");
-let x = parseInt(argv[2]);
+const { argv } = require('process');
+const x = parseInt(argv[2]);
 
-function fact(x) {
+function fact (x) {
   if (x === 0) return 1;
   return x * fact(x - 1);
 }

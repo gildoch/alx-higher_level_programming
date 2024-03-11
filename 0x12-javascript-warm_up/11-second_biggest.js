@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const { argv } = require("process");
+const { argv } = require('process');
 let numbers;
 
 if (argv.length >= 3) {
@@ -14,7 +14,7 @@ if (argv.length >= 3) {
 }
 
 if (argv.length === 2 || argv.length === 3) {
-  console.log("0");
+  console.log('0');
 } else {
   console.log(
     numbers[1]
