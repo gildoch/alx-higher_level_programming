@@ -2,15 +2,28 @@
 
 module.exports = class Rectangle {
   constructor (width, height) {
-    if (typeof width === 'number' && width > 0 && typeof height === 'number' && height > 0) {
+    if (
+      typeof width === 'number' &&
+      typeof height === 'number' &&
+      width > 0 &&
+      height > 0
+    ) {
       this.width = width;
       this.height = height;
     }
   }
 
-  print = function () {
-    for (let j = 0; j < this.height; j++) {
-      console.log('X'.repeat(this.width));
+  print () {
+    for (let i = 0; i < this.height; ++i) {
+      let j = 0;
+
+      for (; j < this.width; ++j) {
+        process.stdout.write('X');
+      }
+
+      if (j === this.width) {
+        console.log('');
+      }
     }
-  };
+  }
 };
