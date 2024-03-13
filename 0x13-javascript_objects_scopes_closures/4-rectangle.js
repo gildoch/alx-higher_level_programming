@@ -13,12 +13,12 @@ module.exports = class Rectangle {
     }
   }
 
-  print () {
+  print (char = 'X') {
     for (let i = 0; i < this.height; ++i) {
       let j = 0;
 
       for (; j < this.width; ++j) {
-        process.stdout.write('X');
+        process.stdout.write(char);
       }
 
       if (j === this.width) {
@@ -27,14 +27,12 @@ module.exports = class Rectangle {
     }
   }
 
-  rotate = function () {
-    const tmpH = this.height;
-    this.height = this.width;
-    this.width = tmpH;
-  };
+  rotate () {
+    [this.width, this.height] = [this.height, this.width];
+  }
 
-  double = function () {
+  double () {
     this.width *= 2;
     this.height *= 2;
-  };
+  }
 };
