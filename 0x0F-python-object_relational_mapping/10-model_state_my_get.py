@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 import sys
 
 if __name__ == "__main__":
-    """Query for all states on database"""
+    """Query for all states on database and prints ID"""
 
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost:33061/{}".format(
