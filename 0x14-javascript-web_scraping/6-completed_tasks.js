@@ -4,7 +4,7 @@ const request = require('request');
 
 const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
-request(apiUrl, (error, response, body) => {
+request(apiUrl, (error, _response, body) => {
   if (error) {
     console.log(error);
     return;
